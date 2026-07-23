@@ -25,3 +25,23 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(el);
   });
 });
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    // 點擊漢堡按鈕切換收折狀態
+    menuToggle.addEventListener('click', () => {
+      menuToggle.classList.toggle('is-active');
+      navLinks.classList.toggle('is-open');
+    });
+
+    // 點擊導航連結後，自動收折選單
+    navLinks.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        menuToggle.classList.remove('is-active');
+        navLinks.classList.remove('is-open');
+      });
+    });
+  });
+</script>
