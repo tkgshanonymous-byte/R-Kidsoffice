@@ -267,6 +267,7 @@ section.file {
   font-size: clamp(26px, 3.8vw, 36px); margin: 0 0 20px;
   color: var(--text-dark); border-bottom: 3px solid var(--gold);
   display: inline-block; padding-bottom: 8px;
+  letter-spacing: 2px;
 }
 
 .file .lede {
@@ -594,4 +595,100 @@ footer {
     width: 38px;
     height: 38px;
   }
+}
+/* ==================== 彈幕效果樣式 ==================== */
+
+/* 1. Hero 主區域：必須設為 relative 才能讓彈幕定位 */
+.hero-section {
+  position: relative;
+  overflow: hidden; /* 防止彈幕飄出邊界 */
+}
+
+/* 2. Hero 裡面的主要文字內容：強制放在最上層 (z-index 提高) */
+.hero-content {
+  position: relative;
+  z-index: 1; /* 數字比彈幕大，文字就會壓在彈幕上方 */
+  pointer-events: auto;
+}
+
+/* 3. 彈幕容器：放中間層 */
+.danmaku-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* 讓點擊事件穿透 */
+  z-index: 1; /* 比 hero-content 小，所以彈幕會在文字後方飄過 */
+}
+
+/* 4. 單條彈幕樣式 */
+/* 單條彈幕預設隱藏在右側外 */
+.danmaku-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  white-space: nowrap;
+  font-size: var(--size, 1rem);
+  color: rgba(255, 255, 255, var(--opacity, 0.6));
+  background: rgba(0, 0, 0, 0.25);
+  padding: 5px 14px;
+  border-radius: 18px;
+  backdrop-filter: blur(2px);
+  will-change: transform;
+  pointer-events: none;
+  /* 不使用 CSS keyframes 動畫，由 JS 動態更新座標 */
+}
+
+/* 彈幕滑入動畫：包含透明度控制 */
+@keyframes danmaku-slide-in {
+  0% {
+    /* 在右側螢幕外，且維持隱藏 */
+    transform: translate3d(100vw, 0, 0);
+    opacity: 0;
+  }
+  2% {
+    /* 一進入畫面立刻顯示 */
+    opacity: var(--opacity, 0.5);
+  }
+  98% {
+    opacity: var(--opacity, 0.5);
+  }
+  100% {
+    /* 滑到左側螢幕外並再次隱藏 */
+    transform: translate3d(-100%, 0, 0);
+    opacity: 0;
+  }
+}
+.clock-card {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-family: monospace; /* 等寬字型可防止數字變動時振動 */
+}
+
+.clock-date {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+
+.clock-time {
+  font-size: 1.2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.views-card {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.9rem;
 }
