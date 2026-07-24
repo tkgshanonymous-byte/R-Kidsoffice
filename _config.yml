@@ -1,0 +1,5 @@
+url: "https://tkgshanonymous-byte.github.io"
+baseurl: "/R-Kidsoffice"
+
+plugins:
+  - jekyll-sitemap
