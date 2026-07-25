@@ -182,3 +182,27 @@ async function fetchViewCount() {
 }
 
 fetchViewCount();
+
+// -----------------------------------
+// 辦公室即時搜尋/查詢功能
+// -----------------------------------
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('searchInput');
+
+    if (searchInput) {
+        searchInput.addEventListener('keyup', () => {
+            const query = searchInput.value.trim().toLowerCase();
+            const searchableItems = document.querySelectorAll('.searchable-item');
+
+            searchableItems.forEach(item => {
+                const text = item.innerText.toLowerCase();
+                
+                if (query === '' || text.includes(query)) {
+                    item.classList.remove('hidden-item');
+                } else {
+                    item.classList.add('hidden-item');
+                }
+            });
+        });
+    }
+});

@@ -692,3 +692,223 @@ footer {
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.9rem;
 }
+
+/* -----------------------------------
+   搜尋框與查詢功能樣式
+----------------------------------- */
+.search-box {
+    position: sticky;
+    top: 70px;
+    z-index: 100;
+    background: var(--paper, #fcfbfa);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+    border: 1px solid rgba(0,0,0,0.1);
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 18px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.search-input:focus {
+    border-color: #8b0000;
+    box-shadow: 0 0 8px rgba(139, 0, 0, 0.2);
+}
+
+.hidden-item {
+    display: none !important;
+}
+
+/* ==========================================
+   Office Page Special Components (辦公室頁面專用)
+   ========================================== */
+
+/* 1. 全局區域置中 (解決擠在左邊與跑版問題) */
+.office-file-container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.office-header {
+  margin-bottom: 30px;
+}
+
+.office-header h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(24px, 4vw, 34px);
+  font-weight: 900;
+  color: var(--text-dark);
+  margin: 12px 0 8px;
+}
+
+.update-date {
+  font-size: 13.5px;
+  color: var(--text-mute);
+  background: var(--paper-dim);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  display: inline-block;
+  border: 1px solid var(--paper-line);
+}
+
+/* 2. 標籤與代號樣式 (解決文字黏在一起的雜亂感) */
+.person-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.person-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #ffffff;
+  border: 1px solid var(--paper-line);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: var(--text-dark);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+  transition: all 0.2s ease;
+}
+
+.person-tag:hover {
+  border-color: var(--gold);
+  transform: translateY(-1px);
+}
+
+/* 班級代號 HighLighting */
+.code-badge {
+  background: var(--red);
+  color: #ffffff;
+  font-family: 'Noto Sans Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 1px 6px;
+  border-radius: 4px;
+  letter-spacing: 0.05em;
+}
+
+.area-code {
+  font-family: 'Noto Sans Mono', monospace;
+  font-size: 12px;
+  background: var(--paper-line);
+  color: var(--text-mute);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 500;
+  margin-left: 6px;
+}
+
+/* 3. 大樓與辦公室卡片架構 */
+.building-card {
+  background: var(--paper-dim);
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-md);
+  padding: 28px;
+  margin-bottom: 28px;
+  box-shadow: var(--shadow-sm);
+}
+
+.building-title {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--red-dim);
+  margin: 0 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sub-office {
+  background: var(--paper);
+  border: 1px solid var(--paper-line);
+  border-radius: var(--radius-sm);
+  padding: 18px 20px;
+  margin-bottom: 16px;
+}
+
+.sub-office:last-child {
+  margin-bottom: 0;
+}
+
+.sub-office-title {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* 4. 座位網格與表格優化 */
+.office-table-wrapper {
+  overflow-x: auto;
+  margin-top: 10px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--paper-line);
+}
+
+.office-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--paper);
+  font-size: 14px;
+}
+
+.office-table th, .office-table td {
+  padding: 12px 14px;
+  border: 1px solid var(--paper-line);
+  text-align: left;
+  vertical-align: middle;
+}
+
+.office-table th {
+  background: var(--paper-dim);
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+/* 5. 快速導覽 Grid */
+.nav-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.nav-grid-item {
+  background: var(--paper);
+  border: 1px solid var(--paper-line);
+  padding: 14px;
+  border-radius: var(--radius-sm);
+}
+
+.nav-grid-item h4 {
+  margin: 0 0 6px;
+  color: var(--red-dim);
+  font-size: 15px;
+}
+
+.nav-grid-item p {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-mute);
+  line-height: 1.5;
+}
