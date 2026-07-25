@@ -206,3 +206,46 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('contactModal');
+    const modalName = document.getElementById('modalName');
+    const modalDept = document.getElementById('modalDept');
+    const modalEmail = document.getElementById('modalEmail');
+    const modalExt = document.getElementById('modalExt');
+    const modalCloseBtn = document.getElementById('modalCloseBtn');
+
+    // 綁定所有姓名標籤
+    const tags = document.querySelectorAll('.person-tag');
+    tags.forEach(tag => {
+        tag.addEventListener('click', () => {
+            const name = tag.getAttribute('data-name');
+            const dept = tag.getAttribute('data-dept');
+            const email = tag.getAttribute('data-email');
+            const ext = tag.getAttribute('data-ext');
+
+            if (modalName) modalName.innerText = name || '';
+            if (modalDept) modalDept.innerText = dept || '';
+            if (modalEmail) modalEmail.innerHTML = email ? `<a href="mailto:${email}">${email}</a>` : '未提供';
+            if (modalExt) modalExt.innerText = ext || '未提供';
+
+            if (modal) modal.classList.add('active');
+        });
+    });
+
+    // 關閉按鈕
+    if (modalCloseBtn) {
+        modalCloseBtn.addEventListener('click', () => {
+            if (modal) modal.classList.remove('active');
+        });
+    }
+
+    // 點擊背景關閉
+    if (modal) {
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.classList.remove('active');
+            }
+        });
+    }
+});

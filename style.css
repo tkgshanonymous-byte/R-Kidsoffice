@@ -912,3 +912,123 @@ footer {
   color: var(--text-mute);
   line-height: 1.5;
 }
+
+/* ===================================================
+   姓名標籤與互動效果 
+   =================================================== */
+.person-tag {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+    display: inline-block;
+    padding: 2px 6px;
+    margin: 2px;
+    border-radius: 4px;
+    background-color: #f0f4f8;
+    color: #2c3e50;
+    border: 1px solid #dcdfe6;
+}
+
+.person-tag:hover {
+    background-color: #0056b3;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* 隱藏搜尋找不到的項目 */
+.hidden-item {
+    display: none !important;
+}
+
+/* ===================================================
+   Modal 彈窗樣式
+   =================================================== */
+.modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none; /* 預設隱藏 */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-backdrop.active {
+    display: flex; /* 啟動時顯示 */
+}
+.modal-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px 28px;
+    max-width: 380px;
+    width: 88%;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.25s ease;
+}
+
+.modal-backdrop.active .modal-card {
+    transform: translateY(0);
+}
+
+.modal-close {
+    position: absolute;
+    top: 14px;
+    right: 18px;
+    font-size: 22px;
+    font-weight: bold;
+    color: #888;
+    cursor: pointer;
+    border: none;
+    background: none;
+    line-height: 1;
+}
+
+.modal-close:hover {
+    color: #333;
+}
+
+.modal-title {
+    font-size: 1.35rem;
+    font-weight: bold;
+    margin-bottom: 4px;
+    color: #222;
+}
+
+.modal-subtitle {
+    font-size: 0.88rem;
+    color: #666;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.modal-info-item {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #444;
+    display: flex;
+    align-items: center;
+}
+
+.modal-info-item span.label {
+    font-weight: bold;
+    width: 100px;
+    color: #555;
+    flex-shrink: 0;
+}
+
+.modal-info-item a {
+    color: #0066cc;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.modal-info-item a:hover {
+    text-decoration: underline;
+}
