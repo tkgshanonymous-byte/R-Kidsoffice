@@ -58,8 +58,8 @@ header.nav {
 }
 
 .nav-brand {
-  font-family: 'Noto Serif TC', serif;
-  font-weight: 900; font-size: 17px;
+  font-family: "Zen Maru Gothic", "Microsoft JhengHei", "微軟正黑體", sans-serif;
+  font-weight: 900; font-size: 23px;
   color: var(--text-light);
   display: flex; align-items: center; gap: 10px;
   transition: opacity 0.2s;
@@ -67,9 +67,16 @@ header.nav {
 .nav-brand:hover { opacity: 0.9; }
 
 .nav-brand .seal {
-  width: 11px; height: 11px; border-radius: 50%;
-  background: var(--red); flex: none;
-  box-shadow: 0 0 10px rgba(170, 56, 44, 0.6);
+    display: inline-block;
+    width: 40px;   /* 依需求調整大小 */
+    height: 40px;
+    background-image: url('https://i.meee.com.tw/pD3Bp09.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    border: none !important;
 }
 
 nav.links { display: flex; gap: 4px; flex-wrap: wrap; justify-content: flex-end; }
@@ -419,19 +426,24 @@ footer {
 }
 
 .brand-title {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 16px;
+  font-family: "Zen Maru Gothic", "Microsoft JhengHei", "微軟正黑體", sans-serif;
+  font-size: 21px;
   gap: 8px;
 }
 
 .brand-title .seal {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--red, #d32f2f);
-  display: inline-block;
-  flex-shrink: 0;
+    display: inline-block;
+    width: 40px;   /* 依需求調整大小 */
+    height: 40px;
+    background-image: url('https://i.meee.com.tw/pD3Bp09.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: transparent !important;
+    border-radius: 0 !important;
+    border: none !important;
 }
+
 
 /* 左欄文字樣式 */
 .footer-col .copyright {
